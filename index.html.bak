@@ -11,14 +11,30 @@
 				margin:0;
 			}
 			#map{
-				width: 50vw; 
-				height: 50vh; 
+				width: 100vw; 
+				height: 100vh; 
 			}
+			.markerNE {
+			  background-image: url('novaxpress-logo.png');
+			  background-size: cover;
+			  width: 50px;
+			  height: 50px;
+			  border-radius: 50%;
+			  cursor: pointer;
+			}
+			.markerCS {
+			  background-image: url('happy_cust.jpg');
+			  background-size: cover;
+			  width: 50px;
+			  height: 50px;
+			  border-radius: 50%;
+			  cursor: pointer;
+			}			
 		</style>
 	</head>
 	<body>
 		<div id='map'></div>
-		<button style = "position:relative; top:-350px; right:-10px" id = "resize-btn">Click to minimize
+		<button style = "position:relative; top:-350px; right:-10px" id = "resize-btn">Clip to small
 		</button>
 		<script src='scripts.js'></script>
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>

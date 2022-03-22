@@ -20,17 +20,19 @@ function errorLocation(){
 	start = [-63.55,44.67];	
 }
 
+//style options =  streets-v11, satellite-v9 , dark-v10, light-v10
+
 function setupMap(center){
 
 	map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/mapbox/streets-v11',
+	style: 'mapbox://styles/mapbox/light-v10',
 	center: center,
 	zoom:13
 	});
 }
 
-end = [-63.2623,45.2578];
+end = [-63.6900,44.7234];
 
 // create a function to make a directions request
 async function getRoute(end) {
@@ -70,12 +72,29 @@ async function getRoute(end) {
         'line-cap': 'round'
       },
       paint: {
-        'line-color': '#3887be',
-        'line-width': 5,
+        'line-color': '#3F07C6',
+        'line-width': 6,
         'line-opacity': 0.75
       }
     });
   }
+
+  elNE = document.createElement('div');
+  elNE.className = 'markerNE';
+  elCS = document.createElement('div');
+  elCS.className = 'markerCS';    
+  // make a marker for each point and add to the map
+  new mapboxgl.Marker(elNE).setLngLat(start).setPopup(
+    new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(
+        `<h3>Pick Up by NovaXpress</h3><p>${start}</p>`)).addTo(map);
+  new mapboxgl.Marker(elCS).setLngLat(end).setPopup(
+    new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML(
+        `<h3>Delivered to Customer</h3><p>${end}</p>`)).addTo(map);  
+  // set the map focus to a binding box surrounding start and end points
+  const boundingBox = new mapboxgl.LngLatBounds(start, end);
+  map.fitBounds(boundingBox,{padding: 160});
   // add turn instructions here at the end - wont be adding by the way
 }
 
@@ -94,6 +113,7 @@ setTimeout(()=>{
 function resizebtn(){
 	document.getElementById('map').style.width = '50vw';
 	document.getElementById('map').style.height = '50vh';
+	document.getElementById('resize-btn').remove();
 }
 
 document.getElementById('resize-btn').onclick = resizebtn;
