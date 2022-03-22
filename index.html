@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name = "viewport" content = "initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>NovaXpress Map</title>
+		<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+		<style>
+			body{
+				margin:0;
+			}
+			#map{
+				width: 100vw; 
+				height: 100vh; 
+			}
+		</style>
+	</head>
+	<body>
+		<div id='map'></div>
+		<button style = "position:relative; top:-350px; right:-10px" id = "resize-btn">Click to minimize
+		</button>
+		<script src='scripts.js'></script>
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">		
+	</body>
+	
+</html>
